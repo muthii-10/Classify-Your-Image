@@ -8,11 +8,11 @@ import os
 
 args = get_input_args()
 
-def load_prep_data(data_dir)
+def load_prep_data(data_dir):
 
-    train_dir = os.path.join(data_dir, '/train')
-    valid_dir = os.path.join(data_dir, '/valid')
-    test_dir = os.path.join(data_dir, '/test')
+    train_dir = os.path.join(data_dir, 'train')
+    valid_dir = os.path.join(data_dir, 'valid')
+    test_dir = os.path.join(data_dir, 'test')
     
     
     # Define your transforms for the training, validation, and testing sets
