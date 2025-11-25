@@ -25,8 +25,9 @@ def main():
     classifier = nn.Sequential(nn.Linear(25088, args.hidden_units),
                                nn.ReLU(),
                                nn.Dropout(0.2),
-                               nn.Linear(args.hidden_units, len(load_and_prep()[2].classes)),
+                               nn.Linear(args.hidden_units, len(train_loader.dataset.classes),
                                nn.LogSoftmax(dim=1))
+    )
     model.classifier = classifier
 
     # Move model to GPU if available and required
@@ -78,7 +79,7 @@ def main():
                         probs = torch.exp(logps)
                         top_p, top_class = probs.topk(1, dim=1)
                         equals = top_class == labels.view(*top_class.shape)
-                        accuracy = torch.mean(equals.type(torch.FloatTensor)).item()
+                        accuracy += torch.mean(equals.type(torch.FloatTensor)).item()
 
                 print(f"Epoch {epoch+1}/{epochs} .." 
                       f"Training loss: {(running_loss/print_every):.3f}.."
@@ -96,7 +97,7 @@ def main():
         'optimizer': optimizer.state_dict(),
         'classifier': model.classifier,
         'state_dict': model.state_dict(),
-        'class_to_idx': load_and_prep()[2].class_to_idx
+        'class_to_idx': train_loader.dataset.class_to_idx
     }
     torch.save(checkpoint, os.path.join(args.save_dir, 'checkpoint.pth'))
 
