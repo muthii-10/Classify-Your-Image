@@ -27,18 +27,6 @@ pip install -r requirements.txt
 
 ---
 
-##### 📁 Repository Structure
-
-Classify-Your-Image/
-├── Image Classifier Project.ipynb # Notebook with exploration & workflow
-├── load_and_prep.py # Load & preprocess image dataset
-├── train.py # Train model with command arguments
-├── predict.py # Make predictions with trained model
-├── input_args.py # Argument parser for CLI scripts
-├── README.md # This README file
-
----
-
 ### 🛠️ Features
 
 - Train an image classification model with **transfer learning** (e.g., `vgg16`, `alexnet`)  
