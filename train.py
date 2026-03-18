@@ -10,7 +10,7 @@ from load_and_prep import load_prep_data
 
 def main():
     args = get_input_args()
-    train_loader, valid_loader, test_loader = load_prep_data(args.data_dir)
+    train_loader, valid_loader, test_loader = load_prep_data(data_dir=args.data_dir)
 
     # Choose architecture and create model
     if args.arch == 'vgg16':
