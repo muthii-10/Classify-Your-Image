@@ -7,7 +7,7 @@ def get_input_args():
     parser = argparse.ArgumentParser()
 
     # General arguments
-    parser.add_argument('--data_dir', type=str, help='Directory of the dataset')
+    parser.add_argument('--data_dir', type=str, default='flowers/', help='Directory of the dataset (default: flowers/)')
     parser.add_argument('--save_dir', type=str, default='checkpoints', help='Directory to save checkpoints')
     parser.add_argument('--gpu', action='store_true', help='Use GPU if available')
 
